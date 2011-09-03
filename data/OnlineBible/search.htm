@@ -1,0 +1,210 @@
+<html>
+ <head>
+ <title>
+Search in Chinese and English Bible</title>
+ <meta name="description" content="Keyword and string search in The Holy Bible King James Version and Chinese Union (Ho Ho) Version GB and Big5 Encoding">
+ <meta name="keywords" content="Bible God Christ Jesus christian Chinese love concordance">
+ </head>
+ <body text='#000000' bgcolor='#ffffcc' link='#0000FF' vlink='#800080' alink='#ff0000'>
+ <center>
+ <h1>
+Search in Chinese and English Bible</h1>
+ </center>
+ <form action="http://www.ccim.org/cgi-user/bible/ob" method=post>
+ <input name="keywords" size=60>
+ <input type="submit" name="search" value="Search">
+<br>
+ <p>
+ <input type="radio" name="method" value="str" checked>
+ Search for the string<br>
+ <input type="radio" name="method" value="and">
+ Display verses that matches all the words. (AND)<br>
+ <input type="radio" name="method" value="or">
+ Display verses that matches any word. (OR)<br>
+ <p>
+ <input type="radio" name="version" value="kjv" checked>
+ King James Version<br>
+ <input type="radio" name="version" value="hgb">
+ Chinese Union Version (GB)<br>
+ <input type="radio" name="version" value="hb5">
+ Chinese Union Version (Big5)<br>
+ <p>
+ <center>
+ Range of Search<br>
+ <table>
+ <tr>
+ <td align="right">
+Start: <td>
+<select name="start_book">
+ <option value="Genesis" SELECTED>
+Genesis <option value="Exodus">
+Exodus <option value="Leviticus">
+Leviticus <option value="Numbers">
+Numbers <option value="Deuteronomy">
+Deuteronomy <option value="Joshua">
+Joshua <option value="Judges">
+Judges <option value="Ruth">
+Ruth <option value="1Samuel">
+1 Samuel <option value="2Samuel">
+2 Samuel <option value="1Kings">
+1 Kings <option value="2Kings">
+2 Kings <option value="1Chronicles">
+1 Chronicles <option value="2Chronicles">
+2 Chronicles <option value="Ezra">
+Ezra <option value="Nehemiah">
+Nehemiah <option value="Esther">
+Esther <option value="Job">
+Job <option value="Psalms">
+Psalms <option value="Proverbs">
+Proverbs <option value="Ecclesiastes">
+Ecclesiastes <option value="Song of Songs">
+Song of Songs <option value="Isaiah">
+Isaiah <option value="Jeremiah">
+Jeremiah <option value="Lamentations">
+Lamentations <option value="Ezekiel">
+Ezekiel <option value="Daniel">
+Daniel <option value="Hosea">
+Hosea <option value="Joel">
+Joel <option value="Amos">
+Amos <option value="Obadiah">
+Obadiah <option value="Jonah">
+Jonah <option value="Micah">
+Micah <option value="Nahum">
+Nahum <option value="Habakkuk">
+Habakkuk <option value="Zephaniah">
+Zephaniah <option value="Haggai">
+Haggai <option value="Zechariah">
+Zechariah <option value="Malachi">
+Malachi <option value="Matthew">
+Matthew <option value="Mark">
+Mark <option value="Luke">
+Luke <option value="John">
+John <option value="Acts">
+Acts <option value="Romans">
+Romans <option value="1Corinthians">
+1 Corinthians <option value="2Corinthians">
+2 Corinthians <option value="Galatians">
+Galatians <option value="Ephesians">
+Ephesians <option value="Philippians">
+Philippians <option value="Colossians">
+Colossians <option value="1Thessalonians">
+1 Thessalonians <option value="2Thessalonians">
+2 Thessalonians <option value="1Timothy">
+1 Timothy <option value="2Timothy">
+2 Timothy <option value="Titus">
+Titus <option value="Philemon">
+Philemon <option value="Hebrews">
+Hebrews <option value="James">
+James <option value="1Peter">
+1 Peter <option value="2Peter">
+2 Peter <option value="1John">
+1 John <option value="2John">
+2 John <option value="3John">
+3 John <option value="Jude">
+Jude <option value="Revelation">
+Revelation </select>
+ <td>
+Chapter <input name="start_chapter" size="5">
+ <td>
+Verse <input name="start_verse" size="5">
+ <tr>
+ <td align="right">
+End:<td>
+<select name="end_book">
+ <option value="Genesis">
+Genesis <option value="Exodus">
+Exodus <option value="Leviticus">
+Leviticus <option value="Numbers">
+Numbers <option value="Deuteronomy">
+Deuteronomy <option value="Joshua">
+Joshua <option value="Judges">
+Judges <option value="Ruth">
+Ruth <option value="1Samuel">
+1 Samuel <option value="2Samuel">
+2 Samuel <option value="1Kings">
+1 Kings <option value="2Kings">
+2 Kings <option value="1Chronicles">
+1 Chronicles <option value="2Chronicles">
+2 Chronicles <option value="Ezra">
+Ezra <option value="Nehemiah">
+Nehemiah <option value="Esther">
+Esther <option value="Job">
+Job <option value="Psalms">
+Psalms <option value="Proverbs">
+Proverbs <option value="Ecclesiastes">
+Ecclesiastes <option value="Song of Songs">
+Song of Songs <option value="Isaiah">
+Isaiah <option value="Jeremiah">
+Jeremiah <option value="Lamentations">
+Lamentations <option value="Ezekiel">
+Ezekiel <option value="Daniel">
+Daniel <option value="Hosea">
+Hosea <option value="Joel">
+Joel <option value="Amos">
+Amos <option value="Obadiah">
+Obadiah <option value="Jonah">
+Jonah <option value="Micah">
+Micah <option value="Nahum">
+Nahum <option value="Habakkuk">
+Habakkuk <option value="Zephaniah">
+Zephaniah <option value="Haggai">
+Haggai <option value="Zechariah">
+Zechariah <option value="Malachi">
+Malachi <option value="Matthew">
+Matthew <option value="Mark">
+Mark <option value="Luke">
+Luke <option value="John">
+John <option value="Acts">
+Acts <option value="Romans">
+Romans <option value="1Corinthians">
+1 Corinthians <option value="2Corinthians">
+2 Corinthians <option value="Galatians">
+Galatians <option value="Ephesians">
+Ephesians <option value="Philippians">
+Philippians <option value="Colossians">
+Colossians <option value="1Thessalonians">
+1 Thessalonians <option value="2Thessalonians">
+2 Thessalonians <option value="1Timothy">
+1 Timothy <option value="2Timothy">
+2 Timothy <option value="Titus">
+Titus <option value="Philemon">
+Philemon <option value="Hebrews">
+Hebrews <option value="James">
+James <option value="1Peter">
+1 Peter <option value="2Peter">
+2 Peter <option value="1John">
+1 John <option value="2John">
+2 John <option value="3John">
+3 John <option value="Jude">
+Jude <option value="Revelation" SELECTED>
+Revelation </select>
+ <td>
+Chapter <input name="end_chapter" size="5">
+ <td>
+Verse <input name="end_verse" size="5">
+ </table>
+ </center>
+ <!-- Example Start End Effect eph1:1 rev21:22 search from eph1:1 through rev21:22 rev21:22 eph1:1 search from eph1:1 through rev21:22 eph rev search from eph1:1 through rev21:22 eph search in the book Eph. (End is left empty) eph1 eph2 search in the first and second chapter of Eph. eph1:1 eph1:6 search from the first through sixth verse of the first chapter of Eph. -->
+ <p>
+ List <select name="nverse">
+ <option>
+ all <option>
+ 5 <option>
+ 10 <option SELECTED>
+ 20 <option>
+ 30 <option>
+ 40 <option>
+ 50 <option>
+ 100 </select>
+ verses in one page. <p>
+ </form>
+ <hr>
+ <center>
+ <a href="index.htm">
+Online Bible</a>
+<br>
+ <a href="http://www.ccim.org">
+Chinese Christian Internet Mission</a>
+ </body>
+ <.htm>
+ 
