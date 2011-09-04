@@ -1,8 +1,11 @@
-(ns stmarkov.pipelines.online-bible)
+(ns stmarkov.pipelines.online-bible
+  (:use (stmarkov)))
 
 (def versicle-regexp #"^\S(.+)(<tr>|</table>)$")
 
-(defn make-online-bible-parser [raw-stream]
+(defn make-parser [raw-stream]
   (map
    #(.replaceAll % " (<tr>|</table>)" "\n")
    (filter #(re-matches versicle-regexp %) raw-stream)))
+
+

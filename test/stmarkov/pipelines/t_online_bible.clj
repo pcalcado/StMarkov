@@ -1,6 +1,7 @@
 (ns stmarkov.pipelines.t-online-bible
-  (:use (midje sweet)        
-        (stmarkov.pipelines online-bible))
+  (:use (midje sweet)
+        (stmarkov))
+  (:require [stmarkov.pipelines.online-bible :as online-bible])
   (:import [java.io StringBufferInputStream BufferedReader InputStreamReader]))
 
 (defn genesis-01-html-reader [] (BufferedReader.
@@ -41,8 +42,10 @@
                            "And God saw every thing that he had made, and, behold, it was very good. And the evening and the morning were the sixth day.\n"])
 
 
-(facts "about extracting the payload"
+(facts "about reading the HTML file"
        (fact "it extracts only the versicles"
              (let [raw-stream (line-seq (genesis-01-html-reader))
-                   parser (make-online-bible-parser raw-stream)]
+                   parser (online-bible/make-parser raw-stream)]
                (reduce (fn [a b] (and a b)) (map = genesis-01-versicles parser)) => true)))
+
+
