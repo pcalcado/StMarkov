@@ -23,3 +23,12 @@
 
 (defn merge-occurences-count [one another]
   (merge-with merge-counts one another))
+
+
+(defn- into-map [m [k v]] (assoc m k v))
+
+(defn to-probability [[word occurences]]
+  (let [total (reduce + (vals occurences))
+        probability-fn (fn [[follower count]] [follower (/ count total)])
+        as-propability  (reduce into-map {} (map probability-fn occurences))]
+    [word as-propability]))

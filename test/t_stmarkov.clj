@@ -49,5 +49,15 @@
                              :z {:x 1
                                  :z 30}}]
                (reduce merge-occurences-count count-list) => expected)))
-               
-               
+
+(facts "about calculating the probability of each follower"
+       (fact "exact probabilities are calculated"
+             (to-probability [:a {:b 666}]) => [:a {:b 1}]
+             (to-probability [:a {:b 99 :c 1}]) => [:a {:b 0.99 :c 0.01}]
+             (to-probability [:a {:b 1 :c 1}]) => [:a {:b 0.5 :c 0.5}])             
+
+       (fact "no followers means no probabilities"
+             (to-probability [:a {}]) => [:a {}])
+
+       (fact "inexact probablities are calculated"
+             (to-probability [:a {:b 1 :c 1 :d 1}]) => [:a {:b (/ 1 3) :c (/ 1 3) :d (/ 1 3)}]))
