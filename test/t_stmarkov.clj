@@ -61,3 +61,16 @@
 
        (fact "inexact probablities are calculated"
              (to-probability [:a {:b 1 :c 1 :d 1}]) => [:a {:b (/ 1 3) :c (/ 1 3) :d (/ 1 3)}]))
+
+(facts "about converting probability to ranges"
+       (fact "ranges are calculted"
+             (to-ranges [:c {:a 0.50 :b 0.50}]) => [:c {:a [1 50] :b [51 100]}]
+             (to-ranges [:d {:a 1}]) => [:d {:a [1 100]}]
+             (to-ranges [:f {:a 0.5 :b 0.3 :c 0.2}]) => [:f {:a [1 50] :b [51 80] :c [81 100]}]))
+
+(facts "about picking a follower based on a number"
+       (fact "it picks the correct option"
+             (pick-follower 1 {:a [1 50] :b [51 100]}) => :a
+             (pick-follower 99 {:a [1 100]}) => :a
+             (pick-follower 51 {:a [1 50] :b [51 100]}) => :b
+             (pick-follower 100 {:a [1 50] :b [51 80] :c [81 100]}) => :c))

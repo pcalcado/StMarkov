@@ -25,10 +25,36 @@
   (merge-with merge-counts one another))
 
 
-(defn- into-map [m [k v]] (assoc m k v))
+(defn- to-map [key-value-pairs]
+  (reduce
+   (fn [m [k v]] (assoc m k v))
+   {}
+   key-value-pairs))
 
 (defn to-probability [[word occurences]]
   (let [total (reduce + (vals occurences))
         probability-fn (fn [[follower count]] [follower (/ count total)])
-        as-propability  (reduce into-map {} (map probability-fn occurences))]
+        as-propability  (to-map (map probability-fn occurences))]
     [word as-propability]))
+
+;;TODO; please simplify me
+(defn- add-to-ranges [ranges probability]
+  (let [prob-as-int (int (* 100 probability))]
+    (conj ranges (cond
+                  (empty? ranges) [1 prob-as-int]
+                  :else (let [previous-maximum (second (last ranges))
+                              start-range (+ previous-maximum 1)
+                              end-range (+ start-range (dec prob-as-int))]
+                          [start-range end-range])))))
+
+(defn to-ranges [[word followers-probability]]
+  [word (to-map (map vector
+                     (keys followers-probability)
+                     (reduce add-to-ranges [] (vals followers-probability))))])
+
+(defn- to-verification-fn [[word [from to]]]
+  (fn [a-number]
+    (if (and (>= a-number from) (<= a-number to)) word nil)))
+
+(defn pick-follower [number followers-as-ranges]
+  (some #(% number) (map to-verification-fn followers-as-ranges)))
